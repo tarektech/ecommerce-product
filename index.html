@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Frontend Mentor | E-commerce product page</title>
+  </head>
+  <body>
+    <header>
+      <nav class="primary-navigation container" aria-hidden="false">
+        <div class="logo">
+          <img src="images/logo.svg" alt="" />
+        </div>
+
+        <div class="menu">
+          <button class="open-menu">
+            <img src="images/icon-menu.svg" alt="" />
+          </button>
+          <button class="close-menu">
+            <img src="images/icon-close.svg" alt="" />
+          </button>
+        </div>
+
+        <ul class="nav-lists">
+          <li class="nav-item"><a href="#" class="nav-link">Collections</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Men</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Women</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="shoping-avatar">
+          <a href="#" class="nav-link_shopping">
+            <!-- here  -->
+            <div class="cart-items cart-items_show">
+              <h5>Cart</h5>
+              <span class="line-cart"></span>
+              <div class="item-info__container">
+                <div class="item-info">
+                  <img src="images/image-product-1-thumbnail.jpg" alt="" />
+                  <div class="item-text-info">
+                    <h5 class="item-description">Fall Limited Edition Sneakers</h5>
+                    <span class="item-price">
+                      $125.00 <span class="item-total-price">375$</span>
+                    </span>
+                  </div>
+                  <svg class="shopping-cart icon-delete">
+                    <use xlink:href="/images/icon-delete.svg#icon-delete"></use>
+                  </svg>
+                </div>
+                <div class="item-info">
+                  <img src="images/image-product-1-thumbnail.jpg" alt="" />
+                  <div class="item-text-info">
+                    <h5 class="item-description">Fall Limited Edition Sneakers</h5>
+                    <span class="item-price">
+                      $125.00 <span class="item-total-price">375$</span>
+                    </span>
+                  </div>
+                  <svg class="shopping-cart icon-delete">
+                    <use xlink:href="/images/icon-delete.svg#icon-delete"></use>
+                  </svg>
+                </div>
+                
+              </div>
+              <button type="submit" class="checkout-btn">CheckOut</button>
+            </div>
+            <svg class="shopping-cart">
+              <use xlink:href="/images/icon-cart.svg#icon-cart"></use>
+            </svg>
+            <!-- <img class="shopping-cart" src="images/icon-cart.svg" alt=""></a> -->
+            <a href="#" class="nav-link_avatar"
+              ><img class="avatar" src="images/image-avatar.png" alt=""
+            /></a>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero_section">
+      <div class="grid-container">
+        <div class="even-columns">
+          <div class="product-cover">
+            <img
+              class="product"
+              src="images/image-product-1.jpg"
+              alt="image-product-1"
+            />
+          </div>
+          <div class="image-banner">
+            <img
+              class="banner"
+              src="images/image-product-1-thumbnail.jpg"
+              alt="banner-1"
+            />
+            <img
+              class="banner"
+              src="images/image-product-2-thumbnail.jpg"
+              alt="banner-2"
+            />
+            <img
+              class="banner"
+              src="images/image-product-3-thumbnail.jpg"
+              alt="banner-3"
+            />
+            <img
+              class="banner"
+              src="images/image-product-4-thumbnail.jpg"
+              alt="banner-4"
+            />
+          </div>
+          <div class="modal-overlay">
+            <div class="modal">
+              <button type="button" id="prev" class="before">&lt;</button>
+              <img
+                class="modal-img"
+                id="modal-image"
+                src="images/image-product-1.jpg"
+                alt=""
+              />
+
+              <div class="card-img">
+                <img
+                  class="banner-modal"
+                  src="images/image-product-1-thumbnail.jpg"
+                  alt="banner-1"
+                />
+                <img
+                  class="banner-modal"
+                  src="images/image-product-2-thumbnail.jpg"
+                  alt="banner-2"
+                />
+                <img
+                  class="banner-modal"
+                  src="images/image-product-3-thumbnail.jpg"
+                  alt="banner-3"
+                />
+                <img
+                  class="banner-modal"
+                  src="images/image-product-4-thumbnail.jpg"
+                  alt="banner-4"
+                />
+              </div>
+              <button type="button" id="next" class="after">&gt;</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="even-columns">
+          <h3>Sneaker Company</h3>
+          <h1>Fall Limited Edition Sneakers</h1>
+          <p>
+            These low-profile sneakers are your perfect casual wear companion.
+            Featuring a durable rubber outer sole, they’ll withstand everything
+            the weather can offer.
+          </p>
+          <div class="price-banner">
+            <div class="price-discount">
+              <span>$125.00</span>
+              <span>50%</span>
+            </div>
+            <del>$250.00</del>
+          </div>
+          <div class="quantity-card">
+            <div class="btn-container">
+              <button class="btn-minus">-</button>
+              <span class="counter">0</span>
+              <button class="btn-plus">+</button>
+            </div>
+            <button type="submit" class="add-to-cart">
+              <svg class="shoppingcart-btn">
+                <use xlink:href="/images/icon-cart.svg#icon-cart"></use>
+              </svg>
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  </body>
+</html>
