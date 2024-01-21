@@ -1,56 +1,60 @@
-const navlink = document.querySelector('.nav-link_shopping');
+function toggleMenu() {
+  const navlink = document.querySelector('.nav-link_shopping');
+  const cart_items = document.querySelector('.cart-items');
+  const item_info__container = document.querySelector('.item-info__container');
+  navlink.addEventListener('click', () => {
+    if (cart_items.classList.contains('cart-items_show')) {
+      cart_items.classList.remove('cart-items_show');
+    } else {
+      cart_items.classList.add('cart-items_show');
+    }
+  });
 
-const cart_items = document.querySelector('.cart-items');
-const item_info__container = document.querySelector('.item-info__container');
-
-navlink.addEventListener('click', () => {
-  if (cart_items.classList.contains('cart-items_show')) {
-    cart_items.classList.remove('cart-items_show');
-  } else {
-    cart_items.classList.add('cart-items_show');
-  }
-});
-
-cart_items.addEventListener('click', (event) => {
-  event.stopPropagation();
-});
-
-
-
-// increment and decrement quantity button
-const quantity = document.querySelector('.counter'); // quantity
-const decrementButton = document.querySelector('.btn-minus'); // decrement button
-const incrementButton = document.querySelector('.btn-plus'); // increment button
-let counter = 0;
-
-// increment and decrement quantity button
-function increment() {
-  counter++;
-  updateCounter();
+  cart_items.addEventListener('click', (event) => {
+    event.stopPropagation();
+  });
 }
+toggleMenu();
 
-function decrement() {
-  if (counter > 0) {
-    counter--;
+function buttonUpdate() {
+  // increment and decrement quantity button
+  const quantity = document.querySelector('.counter'); // quantity
+  const decrementButton = document.querySelector('.btn-minus'); // decrement button
+  const incrementButton = document.querySelector('.btn-plus'); // increment button
+  let counter = 0;
+
+  // increment and decrement quantity button
+  function increment() {
+    counter++;
     updateCounter();
   }
+
+  function decrement() {
+    if (counter > 0) {
+      counter--;
+      updateCounter();
+    }
+  }
+
+  // updating the quantity value
+  function updateCounter() {
+    quantity.textContent = counter;
+  }
+
+  // calling the function to update the quantity value
+  decrementButton.addEventListener('click', decrement);
+  incrementButton.addEventListener('click', increment);
 }
+buttonUpdate();
 
-// updating the quantity value
-function updateCounter() {
-  quantity.textContent = counter;
-}
-
-// calling the function to update the quantity value
-decrementButton.addEventListener('click', decrement);
-incrementButton.addEventListener('click', increment);
-
+function imageUpdate() {}
 /* 
   1. clicking on the product image to open the modal
   2. clicking on the modal overlay to close the modal
   3. clicking on the prev and next button to change the modal image
   4. clicking on the small images to change the modal image
 */
+
 const product = document.querySelector('.product'); // product image
 const banner = document.querySelectorAll('.banner'); // small images of the product
 const modal_overlay = document.querySelector('.modal-overlay'); // modal overlay
@@ -132,49 +136,61 @@ navigateImage = () => {
 // calling the function to navigate to next and prev image in modal
 navigateImage();
 
-// to make the add to cart button work
+// add to cart
 function createItemElement() {
+  let itemPrice = document.getElementById('item-price').innerHTML;
+  let counter = document.querySelector('.counter').innerHTML;
+  let totalPrice = document.querySelector('.total-price').innerHTML;
+
   let itemElement = document.createElement('div');
-  // let item_info__container = document.querySelector('.item-info__container');
   itemElement.classList.add('item-info');
   itemElement.innerHTML = `
-  <img src="images/image-product-1-thumbnail.jpg" alt="" />
-  <div class="item-text-info">
-    <h5 class="item-description">Fall Limited Edition Sneakers</h5>
-    <span class="item-price">
-      $125.00 <span class="item-total-price">375$</span>
-    </span>
-  </div>
-  <svg class="shopping-cart icon-delete">
-    <use xlink:href="/images/icon-delete.svg#icon-delete"></use>
-  </svg>
-  `;
-  
+    <img src="images/image-product-${currentImage + 1}.jpg" alt="" />
+    <div class="item-text-info">
+      <h5 class="item-description">Fall Limited Edition Sneakers</h5>
+      <span class="item-price">
+        ${itemPrice} 
+        <span id="quantity">X ${counter}</span> 
+      </span>
+    </div>
+    <svg class="shopping-cart icon-delete">
+      <use xlink:href="/images/icon-delete.svg#icon-delete"></use>
+    </svg> `;
+
+  // Calculate total price and update the HTML
+  let total = parseFloat(totalPrice);
+  total = total * parseFloat(counter);
+  console.log(total);
+
+  //totalPrice.innerHTML = total.toFixed(2); // Round to 2 decimal places
+
   return itemElement;
 }
 
-let deleteItem = document.querySelector('.icon-delete');
-deleteItem.addEventListener('click', function (event) {
-  let itemInfo = deleteItem.parentElement;
-  itemInfo.remove();
-  console.log('delete item');
-});
+function attachDeleteListener(deleteIcon) {
+  deleteIcon.addEventListener('click', function (event) {
+    let itemInfo = deleteIcon.parentElement;
+    itemInfo.remove();
+    console.log('delete item');
+  });
+}
 
+let deleteItems = document.querySelectorAll('.icon-delete');
+deleteItems.forEach(attachDeleteListener);
 
 function addcart(itemElement) {
   let shoppingList = document.querySelector('.item-info__container');
   shoppingList.appendChild(itemElement);
+
+  // attach the event listener to the delete icon of the appended item
+  let deleteIcon = itemElement.querySelector('.icon-delete');
+  attachDeleteListener(deleteIcon);
 }
 
 let addToCartButton = document.querySelector('.add-to-cart');
 addToCartButton.addEventListener('click', function () {
   let itemElement = createItemElement();
   addcart(itemElement);
-  console.log('add to cart');
 });
 
 // remove the item from the cart
-
-
-
-

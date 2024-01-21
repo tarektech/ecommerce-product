@@ -43,31 +43,22 @@
               <h5>Cart</h5>
               <span class="line-cart"></span>
               <div class="item-info__container">
-                <div class="item-info">
+                <!-- <div class="item-info">
                   <img src="images/image-product-1-thumbnail.jpg" alt="" />
                   <div class="item-text-info">
                     <h5 class="item-description">Fall Limited Edition Sneakers</h5>
                     <span class="item-price">
-                      $125.00 <span class="item-total-price">375$</span>
+                      $125.00 <span id="quantity">X 3 =</span> <span class="item-total-price">375$</span>
                     </span>
                   </div>
                   <svg class="shopping-cart icon-delete">
                     <use xlink:href="/images/icon-delete.svg#icon-delete"></use>
                   </svg>
-                </div>
-                <div class="item-info">
-                  <img src="images/image-product-1-thumbnail.jpg" alt="" />
-                  <div class="item-text-info">
-                    <h5 class="item-description">Fall Limited Edition Sneakers</h5>
-                    <span class="item-price">
-                      $125.00 <span class="item-total-price">375$</span>
-                    </span>
-                  </div>
-                  <svg class="shopping-cart icon-delete">
-                    <use xlink:href="/images/icon-delete.svg#icon-delete"></use>
-                  </svg>
-                </div>
-                
+                </div> -->
+              </div>
+              <div class="total-price-container">
+                <span class="dollar">$</span>
+                <span class="total-price"></span>
               </div>
               <button type="submit" class="checkout-btn">CheckOut</button>
             </div>
@@ -162,7 +153,7 @@
           </p>
           <div class="price-banner">
             <div class="price-discount">
-              <span>$125.00</span>
+              <span id="item-price">$125.00</span>
               <span>50%</span>
             </div>
             <del>$250.00</del>
@@ -170,7 +161,7 @@
           <div class="quantity-card">
             <div class="btn-container">
               <button class="btn-minus">-</button>
-              <span class="counter">0</span>
+              <span class="counter">1</span>
               <button class="btn-plus">+</button>
             </div>
             <button type="submit" class="add-to-cart">
